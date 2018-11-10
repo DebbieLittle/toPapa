@@ -1,0 +1,40 @@
+{
+  "name": "toPapa",
+  "version": "1.0.0",
+  "description": "birthday gift for HS Lee",
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
+  },
+  "author": "Debbie Lee",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-plugin-transform-react-pure-class-to-function": "^1.0.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.20",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.0",
+    "mongoose": "^4.8.6",
+    "nodemon": "^1.18.2",
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^15.4.2"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
+}
