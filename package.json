@@ -18,6 +18,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^6.3.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "mongoose-type-url": "^1.0.4",
     "webpack": "^2.2.1"
   },
   "dependencies": {
