@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Thumbnail, StackGrid} from 'react-bootstrap';
+import {Thumbnail} from 'react-bootstrap';
+import StackGrid from 'react-stack-grid';
 import axios from 'axios';
 
 class App extends React.Component {
   state = {
     photos: [],
-    letters: []
+    letters: [],
+    view: true
   }
 
   getAllPhotos = this.getAllPhotos.bind(this)
-  getAllLetters = this.getAllLetters.bind(this)
+  // getAllLetters = this.getAllLetters.bind(this)
 
   componentDidMount() {
-    this.getAllLetters();
+    // this.getAllLetters();
     this.getAllPhotos();
   }
-  
+
   getAllPhotos() {
     axios.get('/photos')
     .then((res) => {
@@ -29,21 +31,21 @@ class App extends React.Component {
     })
   }
 
-  getAllLetters() {
-    axios.get('/letters')
-    .then((res) => {
-      this.setState({
-        letters: res.data
-      })
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
+  // getAllLetters() {
+  //   axios.get('/letters')
+  //   .then((res) => {
+  //     this.setState({
+  //       letters: res.data
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
 
   render() {
-    if (!this.state.letters.length && !this.state.photos.length) {
-      return null;
+    if (this.state.view === false) {
+      return null
     } else {
       return (
         <div>
@@ -67,4 +69,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'));
