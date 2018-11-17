@@ -12,12 +12,6 @@ app.get('/photos', (req, res) => {
   })
 })
 
-app.get('/letters', (req, res) => {
-  db.getAllLetters((data) => {
-    res.send(data)
-  })
-})
-
 let port = process.env.PORT || 3000;
 
 app.listen(port, function() {
