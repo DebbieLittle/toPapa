@@ -6,6 +6,7 @@ const db = require('../database/index.js')
 app.use(parser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
+
 app.get('/photos', (req, res) => {
   db.getAllPhotos((data) => {
     res.send(data)
