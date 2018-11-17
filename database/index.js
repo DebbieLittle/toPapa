@@ -16,7 +16,6 @@ mongoose.connect('mongodb://localhost/toPapa', function (err) {
     })
   })
   */
-
 });
 
 let photoSchema = mongoose.Schema({
@@ -24,21 +23,6 @@ let photoSchema = mongoose.Schema({
 });
 
 let Photo = mongoose.model('Photo', photoSchema);
-
-
-// let savePhotos = (photos, callback) => {
-//   photos.forEach(photo => {
-//     let newPhoto = new Photo({
-//       url: photo
-//       // possibly photo.url
-//     })
-//   })
-
-//   Photo.update(newPhoto, {upset: true}, function(err, raw) {
-//     if (err) console.log(err);
-//     callback(null, raw)
-//   })
-// }
 
 let getAllPhotos = (callback) => {
   Photo.find()
@@ -49,154 +33,117 @@ let getAllPhotos = (callback) => {
 }
 
 
-// let letterSchema = mongoose.Schema({
-//   url: mongoose.SchemaTypes.Url
-// });
-
-// let Letter = mongoose.model('Letter', photoSchema);
-
-
-// let saveLetters = (letters, callback) => {
-//   letters.forEach(letter => {
-//     let newLetter = new Letter({
-//       url: letter
-//     })  
-//   })
-
-//   Letter.update(newLetter, {upset: true}, function(err, raw) {
-//     if (err) console.log(err);
-//     callback(null, raw)
-//   })
-// }
-
-// let getAllLetters = (callback) => {
-//   Letter.find()
-//        .exec((err, letter) => {
-//          if (err) console.log(err)
-//          else callback(letter)
-//        })
-// }
-
-// module.exports.savePhotos = savePhotos;
 module.exports.getAllPhotos = getAllPhotos;
-// module.exports.saveLetters = saveLetters;
-// module.exports.getAllLetters = getAllLetters;
-
-//debbielittle
-//debbie123
-
-// to view database
-// show dbs; use fetcher; db.repos.find()
 
 // ONE TIME SEED
 /*
 let photos = [
-  'https://imgur.com/a/ypefE82',
-  'https://imgur.com/a/VGrCh8j',
-  'https://imgur.com/a/lvRpszr',
-  'https://imgur.com/a/wHjiRZg',
-  'https://imgur.com/a/K2uEzg5',
-  'https://imgur.com/a/oQTrDWY',
-  'https://imgur.com/a/wSRD8QL',
-  'https://imgur.com/a/XhHJOQP',
-  'https://imgur.com/a/ncraOKl',
-  'https://imgur.com/a/n7sZKFw',
-  'https://imgur.com/a/kG8u3R4',
-  'https://imgur.com/a/YPL3ziL',
-  'https://imgur.com/a/eODfIKz',
-  'https://imgur.com/a/ePWLJis',
-  'https://imgur.com/a/pxgoDkV',
-  'https://imgur.com/a/kJh2MZy',
-  'https://imgur.com/a/PKdJcEv',
-  'https://imgur.com/a/9tQplQA',
-  'https://imgur.com/a/0E8bCDb',
-  'https://imgur.com/a/WSr70cB',
-  'https://imgur.com/a/IIVVUyM',
-  'https://imgur.com/a/WjyhAdR',
-  'https://imgur.com/a/8UZeRq5',
-  'https://imgur.com/a/sCXwVdU',
-  'https://imgur.com/a/kYlFTeU',
-  'https://imgur.com/a/SpeYSjQ',
-  'https://imgur.com/a/FatDKVx',
-  'https://imgur.com/a/4GJv6DU',
-  'https://imgur.com/a/D1WHFBC',
-  'https://imgur.com/a/m9nh7v9',
-  'https://imgur.com/a/1Q7Kb2W',
-  'https://imgur.com/a/yWciNKd',
-  'https://imgur.com/a/jPOu8tn',
-  'https://imgur.com/a/fC1rfxT',
-  'https://imgur.com/a/V2xf4XC',
-  'https://imgur.com/a/BjfI4om',
-  'https://imgur.com/a/zsjfodL',
-  'https://imgur.com/a/LztVa4R',
-  'https://imgur.com/a/4r2xpdu',
-  'https://imgur.com/a/xX2lIdT',
-  'https://imgur.com/a/DL6C9wE',
-  'https://imgur.com/a/rIZyBl7',
-  'https://imgur.com/a/9has5hw',
-  'https://imgur.com/a/pFQ7Z2o',
-  'https://imgur.com/a/z0fODrc',
-  'https://imgur.com/a/4tuU5zF',
-  'https://imgur.com/a/v3629Th',
-  'https://imgur.com/a/4ZiXTwi',
-  'https://imgur.com/a/c1Oaxnr',
-  'https://imgur.com/a/MbHAbcH',
-  'https://imgur.com/a/dxrnkbU',
-  'https://imgur.com/a/7WM9ymO',
-  'https://imgur.com/a/EnjOC4A',
-  'https://imgur.com/a/js0w1qb',
-  'https://imgur.com/a/AAxIUg4',
-  'https://imgur.com/a/uRuDjbc',
-  'https://imgur.com/a/2zCPWWe',
-  'https://imgur.com/a/OX3l1Yf',
-  'https://imgur.com/a/lZGsBHp',
-  'https://imgur.com/a/T4cL1gq',
-  'https://imgur.com/a/vAnOzge',
-  'https://imgur.com/a/HpvGT5Z',
-  'https://imgur.com/a/4tvNcO9',
-  'https://imgur.com/a/0GVIwhQ',
-  'https://imgur.com/a/JPkVW6O',
-  'https://imgur.com/a/ydnpIrr',
-  'https://imgur.com/a/ou3GlDd',
-  'https://imgur.com/a/T1VgKAv',
-  'https://imgur.com/a/3Bbni1p',
-  'https://imgur.com/a/QgBRmp0',
-  'https://imgur.com/a/Y43mjm2',
-  'https://imgur.com/a/CAlq13B',
-  'https://imgur.com/a/IkbOv14',
-  'https://imgur.com/a/OCoqKfX',
-  'https://imgur.com/a/SIlVPDH',
-  'https://imgur.com/a/6SljQc6',
-  'https://imgur.com/a/A6L0hwT',
-  'https://imgur.com/a/bWRLAC8',
-  'https://imgur.com/a/uvcX7jL',
-  'https://imgur.com/a/sn01iES',
-  'https://imgur.com/a/AdNC4Uy',
-  'https://imgur.com/a/oZ2thRO',
-  'https://imgur.com/a/gBs6QMN',
-  'https://imgur.com/a/EtwckJY',
-  'https://imgur.com/a/zVIDV1l',
-  'https://imgur.com/a/oCo8JsD',
-  'https://imgur.com/a/KmNQhV9',
-  'https://imgur.com/a/DLmv610',
-  'https://imgur.com/a/7BhcsZY',
-  'https://imgur.com/a/euhWK9k',
-  'https://imgur.com/a/iTrlA5q',
-  'https://imgur.com/a/ZO3WwFc',
-  'https://imgur.com/a/8A5hFCn',
-  'https://imgur.com/a/ZhoXoiQ',
-  'https://imgur.com/a/r2A7d06',
-  'https://imgur.com/a/X1hxn6X',
-  'https://imgur.com/a/xbMccKf',
-  'https://imgur.com/a/SmGZnL0',
-  'https://imgur.com/a/9L9bksg',
-  'https://imgur.com/a/EzbBu8y',
-  'https://imgur.com/a/NduDN2o',
-  'https://imgur.com/a/LDpmLTV',
-  'https://imgur.com/a/TnSHTYy',
-  'https://imgur.com/a/P5rdGUy',
-  'https://imgur.com/a/o11ORWn',
-  'https://imgur.com/a/oqnRSda',
-  'https://imgur.com/a/5FosZp4'
+  '//i.imgur.com/O74021Tr.jpg',
+  '//i.imgur.com/GHI5kHwr.jpg',
+  '//i.imgur.com/IiGNWtX.jpg',
+  '//i.imgur.com/52g7QZgr.jpg',
+  '//i.imgur.com/rhlxo9H.jpg',
+  '//i.imgur.com/NVE1NrK.jpg',
+  '//i.imgur.com/NKq0qur.jpg',
+  '//i.imgur.com/ZqEgVxm.jpg',
+  '//i.imgur.com/fXNE2Yh.jpg',
+  '//i.imgur.com/7ejT1fj.jpg',
+  '//i.imgur.com/89eTKhG.jpg',
+  '//i.imgur.com/5CyHAgS.jpg',
+  '//i.imgur.com/cxDwoFl.jpg',
+  '//i.imgur.com/uH1zrxz.jpg',
+  '//i.imgur.com/GIr0cF0.jpg',
+  '//i.imgur.com/Ppd4SJg.jpg',
+  '//i.imgur.com/FQEHn3A.jpg',
+  '//i.imgur.com/dxnUZIz.jpg',
+  '//i.imgur.com/mj4sLzG.jpg',
+  '//i.imgur.com/1cWJX9q.jpg',
+  '//i.imgur.com/j9BxFwU.jpg',
+  '//i.imgur.com/cdTdsqD.jpg',
+  '//i.imgur.com/1D9fPyI.jpg',
+  '//i.imgur.com/9lYfzE4.jpg',
+  '//i.imgur.com/SG9toB2.jpg',
+  '//i.imgur.com/yGGTNX9.jpg',
+  '//i.imgur.com/1NvDcx5.jpg',
+  '//i.imgur.com/g5UVUtb.jpg',
+  '//i.imgur.com/mv1Jsm3.jpg',
+  '//i.imgur.com/PFPSpX5.jpg',
+  '//i.imgur.com/Gh3QMDE.jpg',
+  '//i.imgur.com/d9QnD0E.jpg',
+  '//i.imgur.com/EDdYblw.jpg',
+  '//i.imgur.com/yOWGI5J.jpg',
+  '//i.imgur.com/wa7NoKT.jpg',
+  '//i.imgur.com/4lTmr0G.jpg',
+  '//i.imgur.com/JEitWvP.jpg',
+  '//i.imgur.com/eIubz8t.jpg',
+  '//i.imgur.com/Gf8ELKF.jpg',
+  '//i.imgur.com/7rto1y0.jpg',
+  '//i.imgur.com/lgZuJ7H.jpg',
+  '//i.imgur.com/AMpqaf1.jpg',
+  '//i.imgur.com/jXIKJdq.jpg',
+  '//i.imgur.com/km2MUxM.jpg',
+  '//i.imgur.com/yjHX0I6.jpg',
+  '//i.imgur.com/qoxAUxI.jpg',
+  '//i.imgur.com/QgZkG5t.jpg',
+  '//i.imgur.com/F0BYopYr.jpg',
+  '//i.imgur.com/7VX3tYD.jpg',
+  '//i.imgur.com/u2orZHT.jpg',
+  '//i.imgur.com/Riuehy6.jpg',
+  '//i.imgur.com/uOLQ1lZ.jpg',
+  '//i.imgur.com/PO9iMcKr.jpg',
+  '//i.imgur.com/vFNsZms.jpg',
+  '//i.imgur.com/8C4Aikpr.jpg',
+  '//i.imgur.com/QKylZbd.jpg',
+  '//i.imgur.com/mJEHvsP.jpg',
+  '//i.imgur.com/40HPZXs.jpg',
+  '//i.imgur.com/q5igF8M.jpg',
+  '//i.imgur.com/DOHRA3K.jpg',
+  '//i.imgur.com/VAkVpGD.jpg',
+  '//i.imgur.com/Bvfcv7d.jpg',
+  '//i.imgur.com/QtLHQSx.jpg',
+  '//i.imgur.com/ypZ3Ndyr.jpg',
+  '//i.imgur.com/9HejjWV.jpg',
+  '//i.imgur.com/wXypBZY.jpg',
+  '//i.imgur.com/j8fgR3f.jpg',
+  '//i.imgur.com/gthPGsd.jpg',
+  '//i.imgur.com/bLO5M1D.jpg',
+  '//i.imgur.com/Jfx9sFI.jpg',
+  '//i.imgur.com/2gGdWC1.jpg',
+  '//i.imgur.com/JqTv6Ce.jpg',
+  '//i.imgur.com/HrtJIXB.jpg',
+  '//i.imgur.com/soEy57L.jpg',
+  '//i.imgur.com/r9CF9e0.jpg',
+  '//i.imgur.com/r268Cf3.jpg',
+  '//i.imgur.com/oVAzNDB.jpg',
+  '//i.imgur.com/2EkB4FY.jpg',
+  '//i.imgur.com/nvVI7UV.jpg',
+  '//i.imgur.com/ZB1Wmdl.jpg',
+  '//i.imgur.com/LihGpbY.jpg',
+  '//i.imgur.com/FuzlOce.jpg',
+  '//i.imgur.com/L8fYrbw.jpg',
+  '//i.imgur.com/NFM7Vtt.jpg',
+  '//i.imgur.com/8eq7cAn.jpg',
+  '//i.imgur.com/kacF6D2.jpg',
+  '//i.imgur.com/Q9m0PZf.jpg',
+  '//i.imgur.com/Ar3aOKxr.jpg',
+  '//i.imgur.com/sn9qBUg.jpg',
+  '//i.imgur.com/7eyY6II.jpg',
+  '//i.imgur.com/eLxpM7x.jpg',
+  '//i.imgur.com/Qy00lJt.jpg',
+  '//i.imgur.com/FOCQj4m.jpg',
+  '//i.imgur.com/LOl51CV.jpg',
+  '//i.imgur.com/PG1ol1q.jpg',
+  '//i.imgur.com/WvtmwiA.jpg',
+  '//i.imgur.com/pF3aR6L.jpg',
+  '//i.imgur.com/k4CcAe2.jpg',
+  '//i.imgur.com/11OW1oir.jpg',
+  '//i.imgur.com/O0pHisJ.jpg',
+  '//i.imgur.com/3zDahfpr.jpg',
+  '//i.imgur.com/yXi5zeL.jpg',
+  '//i.imgur.com/8LrtbBj.jpg',
+  '//i.imgur.com/DHflwUI.jpg',
+  '//i.imgur.com/XrYycjI.jpg',
+  '//i.imgur.com/OaV3Gct.jpg',
+  '//i.imgur.com/mIEZ2Kd.jpg'
 ]
 */
