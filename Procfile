@@ -1,1 +1,1 @@
-server-dev: nodemon server/index.js
+server-dev: node server/index.js
